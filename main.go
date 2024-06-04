@@ -68,6 +68,7 @@ func main() {
 	buy := e.Group("")
 	buy.Use(custommiddleware.Auth)
 	{
+		buy.GET("/filter-product", h.GetProductsFilter)
 		buy.GET("/products", h.GetProducts)
 		buy.POST("/transactions", h.BuyProduct)
 	}
